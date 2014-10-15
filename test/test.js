@@ -85,6 +85,23 @@ describe( 'opentsdb-client', function tests() {
 			}
 		});
 
+		it( 'should not allow an invalid host', function test() {
+			var values = [
+					'badhost',
+					'1000.10.10.100'
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				expect( badValue( values[i] ) ).to.throw( Error );
+			}
+
+			function badValue( value ) {
+				return function() {
+					client.host( value );
+				};
+			}
+		});
+
 		it( 'should set the default host URL to 127.0.0.1', function test() {
 			assert.strictEqual( client.host(), '127.0.0.1' );
 		});
@@ -665,7 +682,7 @@ describe( 'opentsdb-client', function tests() {
 		});
 
 		it( 'should pass along any aggregator request errors to the callback', function test( done ) {
-			client.host( 'badhost' );
+			client.host( '0.0.0.1' );
 
 			client.aggregators( function onData( error, data ) {
 				if ( error ) {
@@ -722,7 +739,7 @@ describe( 'opentsdb-client', function tests() {
 		});
 
 		it( 'should pass along any metrics request errors to the callback', function test( done ) {
-			client.host( 'badhost' );
+			client.host( '0.0.0.1' );
 
 			client.metrics( function onData( error, data ) {
 				if ( error ) {
@@ -779,7 +796,7 @@ describe( 'opentsdb-client', function tests() {
 		});
 
 		it( 'should pass along any request errors to the callback', function test( done ) {
-			client.host( 'badhost' );
+			client.host( '0.0.0.1' );
 
 			client.config( function onResponse( error, data ) {
 				if ( error ) {
@@ -836,7 +853,7 @@ describe( 'opentsdb-client', function tests() {
 		});
 
 		it( 'should pass along any request errors to the callback', function test( done ) {
-			client.host( 'badhost' );
+			client.host( '0.0.0.1' );
 
 			client.version( function onResponse( error, data ) {
 				if ( error ) {
@@ -893,7 +910,7 @@ describe( 'opentsdb-client', function tests() {
 		});
 
 		it( 'should pass along any request errors to the callback', function test( done ) {
-			client.host( 'badhost' );
+			client.host( '0.0.0.1' );
 
 			client.dropcaches( function onResponse( error, data ) {
 				if ( error ) {
