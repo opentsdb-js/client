@@ -1,3 +1,5 @@
+/* global describe, it, before, beforeEach, after, require */
+'use strict';
 
 // MODULES //
 
@@ -24,7 +26,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'opentsdb-client', function tests() {
-	'use strict';
 
 	// SETUP //
 

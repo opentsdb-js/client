@@ -264,8 +264,8 @@ client.dropcaches( function onResponse( error, body ) {
 ## Examples
 
 ``` javascript
-var client = require( 'opentsdb-client' ),
-	mQuery = require( 'opentsdb-mquery' ),
+var client = require( 'opentsdb-client' )(),
+	mQuery = require( 'opentsdb-mquery' )(),
 	end = Date.now(),
 	start = end - 1000;
 
@@ -332,13 +332,12 @@ Istanbul creates a `./reports/coverage` directory. To access an HTML version of 
 $ make view-cov
 ```
 
-
+---
 ## License
 
 [MIT license](http://opensource.org/licenses/MIT). 
 
 
----
 ## Copyright
 
 Copyright &copy; 2014. Athan Reines.

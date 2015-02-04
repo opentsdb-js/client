@@ -1,7 +1,9 @@
+'use strict';
+
 // NOTE: before running this example, tailor the client configuration to your OpenTSDB endpoint; e.g., `metric`, `tags`, `host`, and `port`.
 
-var client = require( './../lib' ),
-	mQuery = require( 'opentsdb-mquery' ),
+var client = require( './../lib' )(),
+	mQuery = require( 'opentsdb-mquery' )(),
 	end = Date.now(),
 	start = end - 1000;
 
