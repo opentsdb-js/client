@@ -549,6 +549,23 @@ describe( 'opentsdb-client', function tests() {
 				client.url();
 			}
 		});
+		
+		it( 'should return a URL string when start = 0', function test() {
+			var query = mQuery();
+
+			query.metric( 'cpu.utilization' );
+			try {
+				
+				client.start( 0 );
+			} catch(e) {
+				console.log(e)
+			}
+			
+			client.queries( query )
+				.start( Date.now() );
+				
+			expect( client.url() ).to.be.a( 'string' );
+		});
 
 		it( 'should return a URL string', function test() {
 			var query = mQuery();

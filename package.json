@@ -31,7 +31,7 @@
   ],
   "dependencies": {
     "opentsdb-url": "0.0.1",
-    "opentsdb-validate-time": "0.0.1",
+    "opentsdb-validate-time": "^0.0.1",
     "request": "^2.45.0"
   },
   "peerDependencies": {
