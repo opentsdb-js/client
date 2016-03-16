@@ -1,6 +1,6 @@
 {
   "name": "opentsdb-client",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "HTTP client for querying OpenTSDB.",
   "author": {
     "name": "Athan Reines",
