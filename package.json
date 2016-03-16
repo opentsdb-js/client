@@ -30,7 +30,7 @@
     "client"
   ],
   "dependencies": {
-    "opentsdb-url": "0.0.1",
+    "opentsdb-url": "0.0.2",
     "opentsdb-validate-time": "0.0.1",
     "request": "^2.45.0"
   },
@@ -47,10 +47,5 @@
     "opentsdb-tquery": "~0.0.2",
     "opentsdb-query": "~0.0.2"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/MIT"
-    }
-  ]
+  "license": "MIT"
 }
