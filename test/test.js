@@ -86,7 +86,7 @@ describe( 'opentsdb-client', function tests() {
 			}
 		});
 
-		it( 'should not allow an invalid host', function test() {
+		it( 'should not allow an invalid host by default', function test() {
 			var values = [
 					'badhost',
 					'1000.10.10.100'
@@ -99,6 +99,25 @@ describe( 'opentsdb-client', function tests() {
 			function badValue( value ) {
 				return function() {
 					client.host( value );
+				};
+			}
+		});
+
+		it( 'should skip host validation if explicitly asked by client', function test() {
+			var values = [
+					'badhost',
+					'1000.10.10.100'
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				setHost( values[i], { validate: false } )();
+				assert.strictEqual(client.host(), values[i]);
+				expect( setHost( values[i], { validate: true } ) ).to.throw( Error );
+			}
+
+			function setHost( value, options ) {
+				return function() {
+					client.host( value, options );
 				};
 			}
 		});
